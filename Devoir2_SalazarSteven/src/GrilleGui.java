@@ -244,7 +244,12 @@ public class GrilleGui  implements Runnable{
 	 * @param couleur La nouvelle couleur
 	 */
 	public void setCouleurFond(Coord c, Color couleurFond){
-		
+		if(grille[c.ligne][c.colonne]==null)
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {				
+				e.printStackTrace();
+			}
 	        grille[c.ligne][c.colonne].setBackground(couleurFond);
 	}
 

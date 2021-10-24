@@ -24,11 +24,6 @@ public class Flotte {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		
-	
-		
-		
-
 	}
 
 	/**
@@ -108,15 +103,15 @@ public class Flotte {
 	 */
 	private static int ajouterNavire(Navire navire) throws MessagesExceptions {
 
-		boolean chevauche =false; 
-		
-		for(int i = 0; i< navires.size(); i++) {
-			
-			if(navire.mChevauche(navires.get(i))== true) {
+		boolean chevauche = false;
+
+		for (int i = 0; i < navires.size(); i++) {
+
+			if (navire.mChevauche(navires.get(i)) == true) {
 				chevauche = true;
 			}
 		}
-		
+
 		// Si les coordonnés du navire sont à l'intérieur de la grille
 		if (navire.mVerifierEmplacementNavire() == true) {
 			throw new MessagesExceptions(POSITION_INVALIDE_EXCEPTION);
@@ -153,8 +148,8 @@ public class Flotte {
 		while (navireValide == false) {
 			e = null;
 
-			int ligne =  (int) (Math.random() * 9);
-			int colonne =  (int) (Math.random() * 9);
+			int ligne = (int) (Math.random() * 9);
+			int colonne = (int) (Math.random() * 9);
 			int directionChoix = 1 + (int) (Math.random() * 4);
 
 			Coord coordonneeDebut = new Coord(ligne, colonne);
@@ -206,14 +201,20 @@ public class Flotte {
 	 */
 
 	private static void genererPosNavireAleaInsererDsGrille() {
-		MessagesExceptions navireException;
+		MessagesExceptions navireException = null;
 		boolean ajoutValide = false;
 		
-		//NAVIRE 1
+		Navire navire1 = null;
+		Navire navire2 = null;
+		Navire navire3 = null;
+		Navire navire4 = null;
+		Navire navire5 = null;
+
+		// NAVIRE 1
 		while (ajoutValide == false) {
 
 			navireException = null;
-			Navire navire1 = obtenirNavireAleatoire(Constantes.CROISEUR, 3, Color.blue);
+			navire1 = obtenirNavireAleatoire(Constantes.CROISEUR, 3, Color.blue);
 			try {
 				ajouterNavire(navire1);
 			} catch (MessagesExceptions e) {
@@ -228,12 +229,12 @@ public class Flotte {
 		}
 
 		ajoutValide = false;
-		
-		//NAVIRE 2
+
+		// NAVIRE 2
 		while (ajoutValide == false) {
 
 			navireException = null;
-			Navire navire2 = obtenirNavireAleatoire(Constantes.CUIRASSE, 2, Color.DARK_GRAY);
+			navire2 = obtenirNavireAleatoire(Constantes.CUIRASSE, 2, Color.DARK_GRAY);
 
 			try {
 				ajouterNavire(navire2);
@@ -249,11 +250,11 @@ public class Flotte {
 		}
 
 		ajoutValide = false;
-		//NAVIRE 3
+		// NAVIRE 3
 		while (ajoutValide == false) {
 
 			navireException = null;
-			Navire navire3 = obtenirNavireAleatoire(Constantes.DESTROYER, 3, Color.yellow);
+			navire3 = obtenirNavireAleatoire(Constantes.DESTROYER, 3, Color.yellow);
 			try {
 				ajouterNavire(navire3);
 			} catch (MessagesExceptions e) {
@@ -268,12 +269,12 @@ public class Flotte {
 		}
 
 		ajoutValide = false;
-		
-		//NAVIRE 4
+
+		// NAVIRE 4
 		while (ajoutValide == false) {
 
 			navireException = null;
-			Navire navire4 = obtenirNavireAleatoire(Constantes.PORTE_AVION, 4, Color.GREEN);
+			navire4 = obtenirNavireAleatoire(Constantes.PORTE_AVION, 4, Color.GREEN);
 			try {
 				ajouterNavire(navire4);
 			} catch (MessagesExceptions e) {
@@ -288,11 +289,11 @@ public class Flotte {
 		}
 
 		ajoutValide = false;
-		//NAVIRE 5
+		// NAVIRE 5
 		while (ajoutValide == false) {
 
 			navireException = null;
-			Navire navire5 = obtenirNavireAleatoire(Constantes.SOUS_MARIN, 5, Color.CYAN);
+			navire5 = obtenirNavireAleatoire(Constantes.SOUS_MARIN, 5, Color.CYAN);
 			try {
 				ajouterNavire(navire5);
 			} catch (MessagesExceptions e) {
@@ -305,13 +306,12 @@ public class Flotte {
 				System.out.println(navire5.toString());
 			}
 		}
-		
-		
 
 	}
+
 	public static ArrayList<Navire> obtenirFlotteAleatoire() {
 		genererPosNavireAleaInsererDsGrille();
-		
+
 		return navires;
 	}
 

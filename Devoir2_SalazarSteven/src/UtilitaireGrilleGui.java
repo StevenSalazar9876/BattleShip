@@ -48,17 +48,19 @@ public class UtilitaireGrilleGui {
 		ArrayList<Navire> navires = flotte.obtenirFlotteAleatoire();
 		int ligne = 0;
 		int colonne =0;
-		
-		
+		Coord coordonne = null;
+		Color couleur =Color.black;
+		ArrayList<Coord> coordonnes=null;
 		
 		for(int i=0; i< navires.size(); i++) {
-			ArrayList<Coord> coordonnes = navires.get(i).nCoordNavire;
-			Color couleur = navires.get(i).getnCouleurNavire();
 			
-			for(int j=1; j< coordonnes.size(); j++) {
+			coordonnes = navires.get(i).nCoordNavire;
+			couleur = navires.get(i).getnCouleurNavire();
+			
+			for(int j=0; j< coordonnes.size()-1; j++) {
 				 ligne = coordonnes.get(j).ligne;
 				 colonne = coordonnes.get(j).colonne;
-				Coord coordonne = new Coord(ligne,colonne);
+				coordonne = new Coord(ligne,colonne);
 				if(coordonne != null && couleur !=null) {
 				gui.setCouleurFond(coordonne, couleur);
 			

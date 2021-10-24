@@ -6,7 +6,7 @@ public class BattailleNavale {
 		// TODO Auto-generated method stub
 		GrilleGui grille = new GrilleGui(Constantes.TAILLE, Constantes.TAILLE,Constantes.COULEUR_TEXTE 
 				, Constantes.COULEUR_FOND, Constantes.OPTIONS, GrilleGui.QUITTE);
-		
+
 		ArrayList<Navire> navires = new ArrayList<>();
 		Flotte flotte = new Flotte(navires);
 		
