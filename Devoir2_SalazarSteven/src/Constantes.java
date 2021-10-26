@@ -9,6 +9,7 @@ import java.awt.Color;
  */
 public class Constantes {
 	
+	//CONSTANTES
 	// Constantes initiales pour les couleurs du jeu (valeurs arbitraires).
 	public static final Color COULEUR_FOND = Color.WHITE;
 	public static final Color COULEUR_TEXTE = Color.BLACK;
